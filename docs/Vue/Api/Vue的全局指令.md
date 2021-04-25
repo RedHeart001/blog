@@ -1,8 +1,8 @@
 Vue全局API：
 
-​	Vue.extend(options):构建一个类似与“子类”概念的构造器，参数是包含组件选项的对象。
+​	**Vue.extend(options)**:
 
-​		例：
+​		构建一个类似与“子类”概念的构造器，参数是包含组件选项的对象。例：
 
 ```javascript
 <div id="app"></div>
@@ -23,7 +23,7 @@ new newObj().$mount('#app');
 </script>
 ```
 
-​	Vue.nextTick(callack):
+​	**Vue.nextTick(callack)**:
 
 ​		在下次 DOM 更新循环结束之后执行延迟回调。在修改数据之后立即使用这个方法，获取更新后的 DOM。
 
@@ -50,9 +50,7 @@ new newObj().$mount('#app');
 	</script>
 ```
 
-​	
-
-Vue更新机制：
+**Vue更新机制**：
 
 ​	vue的更新是异步机制。当数据变化时，vue将开启一个队列，并缓冲在同一事件中发生的所有数据变更。如果同一个 watcher 被多次触发，只会被推入到队列中一次。这种在缓冲时去除重复数据对于避免不必要的计算和 DOM 操作是非常重要的。然后，在下一个的事件循环“tick”中，Vue 刷新队列并执行实际 (已去重的) 工作。
 
@@ -86,7 +84,7 @@ Vue更新机制：
 
 
 
-Vue.set(target,propertyName/index,value)：
+**Vue.set(target,propertyName/index,value)**：
 
 ​	用于向响应式对象中添加一个属性，并保证这个新添加的属性也是响应式的，可以触发视图更新（由于javascript本身的限制，以及vue在初始化时会为data中的所有属性都设置getter/setter方法，所以Vue无法检测普通属性的变化，如this.newProperty = value这种无法更新视图）
 
@@ -136,7 +134,7 @@ Vue.set(target,propertyName/index,value)：
 
 
 
-Vue.delete(target,propertyName/index):删除对象的属性
+**Vue.delete(target,propertyName/index)**:删除对象的属性
 
 
 

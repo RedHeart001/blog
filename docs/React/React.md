@@ -1,0 +1,7 @@
+React的setState更新方式和Vue的nextTick很像，都是先把所有的事件push到一个事件数组，然后批量处理；
+
+如果对一个数据进行了多次setState，数据只会保留最后一次的状态；
+
+setState的“异步”不是真正的异步，只是通过内部全局变量控制，该变量表示当亲是否处于批量更新的状态。为false时，立刻更新渲染，否则就push到事件数组，只更新最后一次的状态
+
+setTimeout，setInterval会脱离这种“异步”，达到同步

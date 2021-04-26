@@ -1,10 +1,9 @@
 ---
 home: true
-heroImage: /img/logo.jpg
 heroText: Wiki 1001
 tagline: Meet 1000 Books & Unit Them Into 1 Wiki
-actionText: Get Wiki →
-actionLink: /FAQ/
+actionText: Go Start! →
+actionLink: /Vue/动态组件/
 features:
 - title: Wiki - 求索
   details: 基于书签对知识点进行 整理，吸收，吐纳，归档。吾将上下而求索...

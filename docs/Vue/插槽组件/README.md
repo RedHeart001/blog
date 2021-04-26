@@ -262,15 +262,55 @@ export default {
 </script>
 ```
 
+**如果将具名插槽和作用域插槽结合：**
 
+##### App.vue
 
-##### 	动态插槽名：
+```html
+<template>
+  <div id="app">
+    <father-demo>
+      <son-demo>
+        <!-- title插槽的props -->
+        <template v-slot:title='slotProps'>
+          <span>
+            {{ slotProps.sonName}} title
+          </span>
+        </template>
+        <!-- content插槽的props -->
+        <template v-slot:content='slotProps'>
+          <p>
+            {{ slotProps.sonName}} title
+          </p>
+        </template>
+      </son-demo>
+     </father-demo>
+    </div>
+</template>
+```
 
-		<template v-slot:[dunamicName]>
-	    <ul>
-	      <li v-for="item in slotProps.list"
-	          :key="item">
-	        {{item}}
-	      </li>
-	    </ul>
-	  </template>
+##### fatherDemo.vue
+
+```html
+<template>
+  <ul>
+    <slot></slot>
+  </ul>
+</template>
+```
+
+##### sonDemo.vue
+
+```html
+<template>
+  <li @click="sonClick">
+      <!-- title插槽，参数为sonName，统一存放于slotProps -->
+    <slot name="title"
+          :sonName='this.$options.name.substr(0,3)'></slot>
+      <!-- content插槽，参数为sonName，统一存放于slotProps -->
+    <slot name="content"
+          :sonName='this.$options.name.substring(0,4)'></slot>
+  </li>
+</template>
+```
+
